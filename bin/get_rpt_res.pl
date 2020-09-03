@@ -19,7 +19,7 @@ my %gene;
 open IN, "$rpt_list" or die;
 while (<IN>){
     chomp;
-	my @arr = split /\,/, $_;
+    my @arr = split /\,/, $_;
     $gene{$arr[0]} = 1;
 }
 close IN;
@@ -66,7 +66,7 @@ open IN, "$cnv_res" or die;
 while (<IN>){
     chomp;
     my @arr = split /\t/;
-    if ($arr[1] =~ /BRCA/){
+    if (exists $gene{$arr[1]}){
         $flag += 1;
         my $exon = $arr[-1];
         my $cn = $arr[-4];
