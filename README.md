@@ -30,6 +30,9 @@ you need to copy all these ref files into control dir, see `ctr_dir` in `cfg.txt
 
 `less xxx.annot.xls | grep "BRCA2" | grep "NM_000059" >>xxx.annot.rpt.xls`
 
+![cnv fig](https://github.com/Xiaohuaniu0032/GeExCNV/blob/master/gcnv.png)
+
+
 > Note: 	
 >	
 1. if you want to report other genes' exon-level CNV, you should add it just like above BRCA1/2 lines `less xxx.annot.xls | grep ...`
