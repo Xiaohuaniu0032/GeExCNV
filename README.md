@@ -1,61 +1,109 @@
-### analysis germline CNV (exon-level and gene-level) from capture data
+### *analysis germline CNV (exon-level and gene-level) from capture data*
+
 
 ## Usage
+`perl GeExCNV.pl -bam /path/to/test.bam -cfg /path/to/cfg.txt -rpt /path/to/rpt.gene.list -outdir /path/to/outdir`
 
-`perl berryOncGermlineCNV.v2.pl -bam *bam [-cfg] [-panel] -outdir outdir`
-
->注意：只能指定-cfg/-panel其中的一个参数。如果指定-panel，会使用默认的`102.cfg.txt`或`31.cfg.txt`。目前-panel只支持31/102。
+>Note: if /path/to/outdir does not exist, GeExCNV.pl will automatically make it.
 
 
-`perl berryOncGermlineCNV.v2.pl -bam *.bam -cfg 102.cfg.txt -outdir outdir`
+### *Before running this pipeline, you need to construct some files.*
 
-OR
+1. reference files
+2. annot files
 
-`perl berryOncGermlineCNV.v2.pl -bam *.bam -panel 102 -outdir outdir`
+### *how to construct these files*
 
-### 结果目录如下
+1) reference files
+
+`perl /path/GeExCNV/bin/cal_depth.pl -bam /path/to/test.bam -bed /path/to/bed -samtools /path/to/samtools -outdir /path/to/outdir`
+
+this will creat a file `*.normalized_depth.txt`
+
+you need to copy all these ref files into control dir, see `ctr_dir` in `cfg.txt` file.
+
+2) annot files
+
+`bedtools intersect -a /path/to/test.bed -b /path/GeExCNV/public_db/geneNM.xls -wo >xxx.annot.xls`
+
+`less xxx.annot.xls | grep "BRCA1" | grep "NM_007294" >xxx.annot.rpt.xls`
+`less xxx.annot.xls | grep "BRCA2" | grep "NM_000059" >>xxx.annot.rpt.xls`
+
+> Note: 	
+>	
+1. if you want to report other genes' exon-level CNV, you should add it just like above BRCA1/2 lines `less xxx.annot.xls | grep ...`
+2. you need to give the porper transcript for your gene
+
+
+## Testing
+see `/path/GeExCNV/test/run.sh` for detail usage.
+
+
+## Result Dir
+you can see `/path/GeExCNV/test/test_result/` for detail info.
+
 ```
--rw-rw-r-- 1 fulf3657  683 5月  27 16:00 cfg.log
--rw-rw-r-- 1 fulf3657 2.0K 5月  27 16:00 cnv_RZA04459.sh
--rw-r--r-- 1 fulf3657    0 5月  27 16:00 cnv_RZA04459.sh.e9079701
--rw-r--r-- 1 fulf3657  94K 5月  27 16:00 cnv_RZA04459.sh.o9079701
--rw-r--r-- 1 fulf3657  58K 5月  27 16:00 depth.txt
--rw-r--r-- 1 fulf3657 648K 5月  27 16:00 ref_matrix.xls
--rw-r--r-- 1 fulf3657 184K 5月  27 16:00 RZA04459.annot.xls
--rw-r--r-- 1 fulf3657  94K 5月  27 16:00 RZA04459.CNV.png
--rw-r--r-- 1 fulf3657  131 5月  27 16:00 RZA04459.exon.CNV.xls
--rw-r--r-- 1 fulf3657  431 5月  27 16:00 RZA04459.flagstat.txt
--rw-r--r-- 1 fulf3657   58 5月  27 16:00 RZA04459.gene.CNV.xls
--rw-r--r-- 1 fulf3657  74K 5月  27 16:00 RZA04459.normalized_depth.txt
--rw-r--r-- 1 fulf3657  158 5月  27 16:00 RZA04459.QC.xls
--rw-r--r-- 1 fulf3657 123K 5月  27 16:00 RZA04459.ratio.xls
--rw-r--r-- 1 fulf3657  126 5月  27 16:00 RZA04459.rpt.cnv.xls
--rw-r--r-- 1 fulf3657  16K 5月  27 16:00 selected_ref.txt
+-rw-rw-r-- 1 fulongfei fulongfei 225275 9月   3 10:32 BB20022818_CL01167.annot.xls
+-rw-rw-r-- 1 fulongfei fulongfei  15855 9月   3 10:33 BB20022818_CL01167.CNV.pdf
+-rw-rw-r-- 1 fulongfei fulongfei 362679 9月   3 10:33 BB20022818_CL01167.CNV.png
+-rw-rw-r-- 1 fulongfei fulongfei     63 9月   3 10:33 BB20022818_CL01167.exon.CNV.xls
+-rw-rw-r-- 1 fulongfei fulongfei    449 9月   3 10:33 BB20022818_CL01167.flagstat.txt
+-rw-rw-r-- 1 fulongfei fulongfei     58 9月   3 10:33 BB20022818_CL01167.gene.CNV.xls
+-rw-rw-r-- 1 fulongfei fulongfei  81200 9月   3 10:32 BB20022818_CL01167.normalized_depth.txt
+-rw-rw-r-- 1 fulongfei fulongfei    170 9月   3 10:33 BB20022818_CL01167.QC.xls
+-rw-rw-r-- 1 fulongfei fulongfei 136889 9月   3 10:32 BB20022818_CL01167.ratio.xls
+-rw-rw-r-- 1 fulongfei fulongfei    144 9月   3 10:33 BB20022818_CL01167.rpt.cnv.xls
+-rw-rw-r-- 1 fulongfei fulongfei    549 9月   3 10:05 cfg.log
+-rw-rw-r-- 1 fulongfei fulongfei   2796 9月   3 10:05 cnv_BB20022818_CL01167.sh
+-rw-rw-r-- 1 fulongfei fulongfei  61534 9月   3 10:32 depth.txt
+-rw-rw-r-- 1 fulongfei fulongfei 169742 9月   3 10:32 ref_matrix.xls
+-rw-rw-r-- 1 fulongfei fulongfei   2583 9月   3 10:32 selected_ref.txt
 ```
 
-### 文件说明
-`cfg.log`：详细的参数配置说明
+**Result explain:**
 
-`cnv_RZA04459.sh`：运行脚本
+`cfg.log`: detail info in cfg.txt
 
-`depth.txt`：深度文件
+`cnv_BB20022818_CL01167.sh`: the shell made after you run main script `perl GeExCNV.pl ...`, you can `sh *.sh` or `qsub *.sh`
 
-`RZA04459.normalized_depth.txt`：标准化之后的文件
+`depth.txt`: depth info
 
-`ref_matrix.xls`：ref norm depth matrix
+`BB20022818_CL01167.normalized_depth.txt`: normalized depth info
 
-`selected_ref.txt`：选择的ref详细信息
+`selected_ref.txt`: selected ref samples
 
-`RZA04459.ratio.xls`：ratio文件
+`ref_matrix.xls`: each line is a region in your bed file
 
-`RZA04459.annot.xls`：注释结果
-	
-`RZA04459.exon.CNV.xls`：外显子水平结果
+`BB20022818_CL01167.ratio.xls`: copy number ratio info
 
-`RZA04459.gene.CNV.xls`：基因水平结果
+`BB20022818_CL01167.annot.xls`: add some annot info
 
-`RZA04459.rpt.cnv.xls`：报出结果
-	
-`RZA04459.QC.xls`：QC信息
+`BB20022818_CL01167.flagstat.txt`: samtools flagstat info
+
+`BB20022818_CL01167.QC.xls`: QC info
+
+`BB20022818_CL01167.exon.CNV.xls`: exon-level cnv result
+
+`BB20022818_CL01167.gene.CNV.xls`: gene-level cnv result
+
+`BB20022818_CL01167.rpt.cnv.xls`: final exon-level cnv result
+
+`BB20022818_CL01167.CNV.pdf`: pdf fig
+
+`BB20022818_CL01167.CNV.png`: png fig, same as pdf fig
+
+
+## Questions
+
+* how many wbc samples should be used as reference?
+
+ at least 30-50 wbc samples are preferred.
+
+
+## Softwares dependencies
+* perl
+* samtools
+* bedtools
+* R
 
 
