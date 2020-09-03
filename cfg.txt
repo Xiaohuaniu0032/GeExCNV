@@ -1,5 +1,4 @@
 perl:/usr/bin/perl
-py3:/path/miniconda3/bin/python3
 samtools:/path/miniconda3/bin/samtools
 bedtools:/path/miniconda3/bin/bedtools
 Rscript:/path/miniconda3/bin/Rscript
