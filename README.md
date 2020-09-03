@@ -30,8 +30,6 @@ you need to copy all these ref files into control dir, see `ctr_dir` in `cfg.txt
 
 `less xxx.annot.xls | grep "BRCA2" | grep "NM_000059" >>xxx.annot.rpt.xls`
 
-![cnv fig](https://github.com/Xiaohuaniu0032/GeExCNV/blob/master/gcnv.png)
-
 
 > Note: 	
 >	
@@ -96,6 +94,7 @@ you can see `/path/GeExCNV/test/test_result/` for detail info.
 
 `BB20022818_CL01167.CNV.png`: png fig, same as pdf fig
 
+![cnv fig](https://github.com/Xiaohuaniu0032/GeExCNV/blob/master/gcnv.png)
 
 ## Questions
 
