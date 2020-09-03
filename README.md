@@ -27,6 +27,7 @@ you need to copy all these ref files into control dir, see `ctr_dir` in `cfg.txt
 `bedtools intersect -a /path/to/test.bed -b /path/GeExCNV/public_db/geneNM.xls -wo >xxx.annot.xls`
 
 `less xxx.annot.xls | grep "BRCA1" | grep "NM_007294" >xxx.annot.rpt.xls`
+
 `less xxx.annot.xls | grep "BRCA2" | grep "NM_000059" >>xxx.annot.rpt.xls`
 
 > Note: 	
