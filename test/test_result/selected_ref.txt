@@ -1,0 +1,14 @@
+sample	ref	avg_diff
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20022818_CL01167.normalized_depth.txt	0.0000
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20081237_CL01167.normalized_depth.txt	0.0527
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20062440_CL01167.normalized_depth.txt	0.0574
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20062439_CL01167.normalized_depth.txt	0.0596
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20063004_CL01167.normalized_depth.txt	0.0966
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20080104_CL01167.normalized_depth.txt	0.0993
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20081486_CL01167.normalized_depth.txt	0.1023
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20062403_CL01167.normalized_depth.txt	0.1029
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20051407_CL01167.normalized_depth.txt	0.1067
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20061128_CL01167.normalized_depth.txt	0.1097
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20042460_CL01167.normalized_depth.txt	0.1396
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/BB20042459_CL01167.normalized_depth.txt	0.1469
+/home/fulongfei/workdir/pipeline/GeExCNV/test/test_result/BB20022818_CL01167.normalized_depth.txt	/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr/FA20053059_1_CL01167.normalized_depth.txt	0.1816

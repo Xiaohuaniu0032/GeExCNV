@@ -1,0 +1,10 @@
+perl:/usr/bin/perl
+py3:/path/miniconda3/bin/python3
+samtools:/path/miniconda3/bin/samtools
+bedtools:/path/miniconda3/bin/bedtools
+Rscript:/path/miniconda3/bin/Rscript
+bed:/path/GeExCNV/test/bed/31gene.bed
+ctr_dir:/path/GeExCNV/test/ctr
+ctr_num:70
+annot_file:/path/GeExCNV/annot/31.annot.rpt.xls
+strand_file:/path/GeExCNV/annot/31.annot.xls

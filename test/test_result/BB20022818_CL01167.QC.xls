@@ -1,0 +1,2 @@
+name	reads_num	proper_aln_pct	mean_cov	50X	100X	200X	300X	400X	500X	0.2X	0.5X	sampleQC
+BB20022818_CL01167	21535935	0.79	2964	1.00	1.00	1.00	1.00	1.00	1.00	1.00	0.98	0.11

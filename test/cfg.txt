@@ -1,0 +1,9 @@
+perl:/usr/bin/perl
+samtools:/home/fulongfei/miniconda3/bin/samtools
+bedtools:/home/fulongfei/miniconda3/bin/bedtools
+Rscript:/home/fulongfei/miniconda3/bin/Rscript
+bed:/data1/workdir/fulongfei/genetic/GeExCNV_db/338/bed/338genes_20191225.bed
+ctr_dir:/data1/workdir/fulongfei/genetic/GeExCNV_db/338/ctr
+ctr_num:70
+annot_file:/data1/workdir/fulongfei/genetic/GeExCNV_db/338/annot/338.annot.xls
+strand_file:/data1/workdir/fulongfei/genetic/GeExCNV_db/338/annot/338.annot.rpt.xls
