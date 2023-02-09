@@ -1,7 +1,9 @@
 use strict;
 use warnings;
 
-# 解析refFlat文件
+# http://genome.ucsc.edu/cgi-bin/hgTables?hgsid=1220235277_SJWvNhqI4wCU4FbY6LcxOLoaaC5l&hgta_doSchemaDb=macFas5&hgta_doSchemaTable=refFlat
+# Note: all start coordinates in our database are 0-based, not 1-based. See explanation here.
+
 my ($refFlat, $outfile) = @ARGV;
 
 open O, ">$outfile" or die;
@@ -12,8 +14,10 @@ while (<IN>){
 	chomp;
 	my @arr = split /\t/;
 	my $strand = $arr[3];
+	
 	my $start_exon = $arr[-2];
 	$start_exon =~ s/\,$//;
+
 	my $end_exon = $arr[-1];
 	$end_exon =~ s/\,$//;
 	
@@ -22,9 +26,10 @@ while (<IN>){
 
 	my $exon_num = $arr[-3];
 	my $exon_idx = 0;
+
 	if ($strand eq "+"){
 		for (my $i=1;$i<=$exon_num;$i++){
-			my $start = $start_exon[$i-1];
+			my $start = $start_exon[$i-1] + 1; # 0-based
 			my $end = $end_exon[$i-1];
 			$exon_idx += 1;
 			my $exon = "exon".$exon_idx;
@@ -32,7 +37,7 @@ while (<IN>){
 		}
 	}else{
 		for (my $i=1;$i<=$exon_num;$i++){
-			my $start = $start_exon[$i-1];
+			my $start = $start_exon[$i-1] + 1; # last exon -> first exon
 			my $end = $end_exon[$i-1];
 			$exon_idx = $exon_num - $i + 1;
 			my $exon = "exon".$exon_idx;
