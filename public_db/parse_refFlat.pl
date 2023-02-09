@@ -27,13 +27,17 @@ while (<IN>){
 	my $exon_num = $arr[-3];
 	my $exon_idx = 0;
 
+	# add cds region
+	my $cds_start = $arr[6] + 1;
+	my $cds_end   = $arr[7];
+
 	if ($strand eq "+"){
 		for (my $i=1;$i<=$exon_num;$i++){
 			my $start = $start_exon[$i-1] + 1; # 0-based
 			my $end = $end_exon[$i-1];
 			$exon_idx += 1;
 			my $exon = "exon".$exon_idx;
-			print O "$arr[2]\t$start\t$end\t$arr[0]\t$strand\t$arr[1]\t$exon\n";
+			print O "$arr[2]\t$start\t$end\t$arr[0]\t$strand\t$arr[1]\t$exon\tCDS:$cds_start\:$cds_end\n";
 		}
 	}else{
 		for (my $i=1;$i<=$exon_num;$i++){
@@ -41,7 +45,7 @@ while (<IN>){
 			my $end = $end_exon[$i-1];
 			$exon_idx = $exon_num - $i + 1;
 			my $exon = "exon".$exon_idx;
-			print O "$arr[2]\t$start\t$end\t$arr[0]\t$strand\t$arr[1]\t$exon\n";
+			print O "$arr[2]\t$start\t$end\t$arr[0]\t$strand\t$arr[1]\t$exon\tCDS\:$cds_start\:$cds_end\n";
 		}
 	}
 }
